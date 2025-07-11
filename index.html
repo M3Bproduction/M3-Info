@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#2196f3" />
+  <link rel="icon" href="icons/icon-192x192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NZWFGJST12"></script>
   <script>
@@ -51,7 +57,6 @@
   </header>
 
   <main class="info-content">
-    <p>Retourner à l'accueil de <a href="https://www.m3bproduction.site/index.html" class="btn">M3B Production</a></p>
     <h2>Bienvenue sur <strong>M3'Info</strong></h2>
     <!--<p>Apprenez à utiliser les logiciels de base pour la <strong>bureautique</strong> et initiez-vous à la <strong>programmation web</strong> !</p>
 
@@ -118,6 +123,12 @@
   </div>
 
   <script>
+    if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/service-worker.js")
+      .then(() => console.log("✅ Service Worker enregistré"))
+      .catch(error => console.error("❌ Erreur SW :", error));
+  }
+
     const toggleBtn = document.getElementById("theme-toggle");
     if (localStorage.getItem("theme") === "dark") {
       document.body.classList.add("dark");
